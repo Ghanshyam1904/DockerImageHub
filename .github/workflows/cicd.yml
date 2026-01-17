@@ -26,8 +26,7 @@ jobs:
           pip install pytest
 
       - name: Run tests
-        run: |
-          pytest
+        run: pytest
 
   build-and-publish:
     needs: build-and-test
@@ -56,4 +55,4 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/flask-app:latest
 
       - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+        run: "echo ${{ steps.docker_build.outputs.digest }}"
